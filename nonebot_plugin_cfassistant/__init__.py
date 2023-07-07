@@ -11,12 +11,12 @@ import asyncio
 import os
 
 __plugin_meta__ = PluginMetadata(
-    name="{nonebot-plugin-cfassistant}",
-    description="{一个支持CF(codeforces)平台查询比赛/比赛提醒/监测分数变化的nonebot机器人插件}",
-    usage="{/cfhelp查看插件帮助}",
-    type="{application}",
+    name="nonebot-plugin-cfassistant",
+    description="一个支持CF(codeforces)平台查询比赛/比赛提醒/监测分数变化的nonebot机器人插件",
+    usage="/cfhelp查看插件帮助\n",
+    type="application",
     # 发布必填，当前有效类型有：`library`（为其他插件编写提供功能），`application`（向机器人用户提供功能）。
-    homepage="{https://github.com/coyude/nonebot-plugin-cfassistant}",
+    homepage="https://github.com/coyude/nonebot-plugin-cfassistant",
     # 发布必填。
     supported_adapters={"~onebot.v11"}
 )
