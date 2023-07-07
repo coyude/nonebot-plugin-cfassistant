@@ -51,14 +51,14 @@ async def getCF_fun():
 
 @PluginHelp.handle()
 async def PluginHelp_fun():
-    await PluginHelp.finish("""nonebot-plugin-CFReminder 使用方法👇\n        
+    await PluginHelp.finish("""nonebot-plugin-cfassistant 使用方法👇\n        
 1.输入:/CF 或 /cf 或 /查CF 或 /查cf 即可进行查询近期比赛\n
 2.在好友私聊下输入:/绑定 你的CF个人ID 即可对该账户分数进行监测(一个ID只能绑定一个QQ号)\n
 3.在群聊下输入:/群提醒 即可对本群开启比赛提醒功能(分别在48小时，11小时，3小时提醒一次)\n
 4.在群聊下输入:/取消群提醒 即可关闭本群的比赛提醒功能\n
 5.在好友私聊下输入:/提醒 即可开启比赛提醒功能(分别在48小时，11小时，3小时提醒一次)\n
 6.在好友私聊下输入:/取消提醒 即可关闭比赛提醒功能\n
-如有问题或建议，请在 https://github.com/coyude/nonebot-plugin-cfreminder 上反馈，感谢🤗""")
+如有问题或建议，请在 https://github.com/coyude/nonebot-plugin-cfassistant 上反馈，感谢🤗""")
 
 @bind.handle()
 async def bind_fun(bot: Bot, event: PrivateMessageEvent,args: Message = CommandArg()):
