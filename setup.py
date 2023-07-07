@@ -15,6 +15,7 @@ setup(
     install_requires=[
         "requests>=2.23.0",
         "nonebot_plugin_apscheduler>=0.3.0",
-        "nonebot2>=2.0.0"
+        "nonebot2>=2.0.0",
+        "nonebot-adapter-onebot>=2.2.3"
     ],
 )
