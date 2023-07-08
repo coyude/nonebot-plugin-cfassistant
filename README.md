@@ -21,8 +21,9 @@ _✨ NoneBot 插件简单描述 ✨_
 
 </div>
 
-
-一个支持CF(codeforces)平台查询比赛/比赛提醒/监测分数变化的nonebot机器人插件
+  
+一个支持CF(codeforces)平台查询比赛/比赛提醒/监测分数变化的nonebot机器人插件  
+插件启动后，将会在nonebot机器人项目创建 `data/CFHelper/`，并存放`data.db`(储存比赛和绑定用户)和`reminder.db`(储存订阅比赛提醒的用户和群聊)
 
 ## 📖 介绍
 
