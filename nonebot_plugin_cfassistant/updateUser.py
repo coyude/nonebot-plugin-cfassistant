@@ -89,7 +89,7 @@ async def updateUser():
     for row in RS:
         Oid, Onow_rating, Oupdate_time, OQQ, Ostatus ,Olast_rating = row
         user_info_url=user_info_baseurl+Oid
-        time.sleep(0.2)
+        time.sleep(0.3)
         try:
             response = requests.get(user_info_url)
             response.raise_for_status()  # 检查响应是否成功，如果不成功会抛出异常
