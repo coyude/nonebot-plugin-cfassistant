@@ -2,7 +2,7 @@ from setuptools import setup
 from setuptools import find_packages
 
 
-VERSION = '1.0.1'
+VERSION = '1.1'
 
 setup(
     name='nonebot-plugin-cfassistant', 
