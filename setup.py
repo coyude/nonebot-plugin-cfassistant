@@ -2,7 +2,7 @@ from setuptools import setup
 from setuptools import find_packages
 
 
-VERSION = '1.1'
+VERSION = '1.2'
 
 setup(
     name='nonebot-plugin-cfassistant', 
@@ -17,6 +17,7 @@ setup(
         "nonebot_plugin_apscheduler>=0.3.0",
         "nonebot2>=2.0.0",
         "nonebot-adapter-onebot>=2.2.3",
-        "aiosqlite>=0.17.0"
+        "aiosqlite>=0.17.0",
+        "aiohttp>=3.8.0"
     ],
 )

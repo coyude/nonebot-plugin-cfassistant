@@ -1,4 +1,4 @@
-import requests
+import aiohttp
 import json
 import datetime
 import aiosqlite
@@ -42,20 +42,19 @@ class UserType:
 async def addUser(id,QQ):
     user_info_url=user_info_baseurl+id
     try:
-        response = requests.get(user_info_url)
-        response.raise_for_status()  # 检查响应是否成功，如果不成功会抛出异常
-        data = json.loads(response.text)
-    except requests.RequestException as e:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(user_info_url) as response:
+                response.raise_for_status()  # 检查响应是否成功，如果不成功会抛出异常
+                data = await response.json()
+    except aiohttp.ClientError as e:
         print("请求错误:", e)
-        return False 
+        return False
     except json.JSONDecodeError as e:
         print("JSON解析错误:", e)
         return False
-        # 处理JSON解析异常的情况
     except Exception as e:
         print("发生了其他错误:", e)
         return False
-        # 处理其他未预料到的异常情况
 
     # 检查API响应状态
     if data["status"] == "OK":
@@ -99,20 +98,19 @@ async def updateUser():
             user_info_url=user_info_baseurl+Oid
             time.sleep(0.3)
             try:
-                response = requests.get(user_info_url)
-                response.raise_for_status()  # 检查响应是否成功，如果不成功会抛出异常
-                data = json.loads(response.text)
-            except requests.RequestException as e:
+                async with aiohttp.ClientSession() as session:
+                    async with session.get(user_info_url) as response:
+                        response.raise_for_status()  # 检查响应是否成功，如果不成功会抛出异常
+                        data = await response.json()
+            except aiohttp.ClientError as e:
                 print("请求错误:", e)
                 continue
             except json.JSONDecodeError as e:
                 print("JSON解析错误:", e)
                 continue
-                # 处理JSON解析异常的情况
             except Exception as e:
                 print("发生了其他错误:", e)
                 continue
-                # 处理其他未预料到的异常情况
 
             # 检查API响应状态
             if data["status"] == "OK":

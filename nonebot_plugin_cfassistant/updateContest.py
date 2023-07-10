@@ -1,4 +1,4 @@
-import requests
+import aiohttp
 import json
 import datetime
 import aiosqlite
@@ -68,20 +68,19 @@ class ContestType:
 async def updateContest():
     Contests=[]
     try:
-        response = requests.get(contest_url)
-        response.raise_for_status()  # 检查响应是否成功，如果不成功会抛出异常
-        data = json.loads(response.text)
-    except requests.RequestException as e:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(contest_url) as response:
+                response.raise_for_status()  # 检查响应是否成功，如果不成功会抛出异常
+                data = await response.json()
+    except aiohttp.ClientError as e:
         print("请求错误:", e)
         return Contests
     except json.JSONDecodeError as e:
         print("JSON解析错误:", e)
         return Contests
-        # 处理JSON解析异常的情况
     except Exception as e:
         print("发生了其他错误:", e)
         return Contests
-        # 处理其他未预料到的异常情况
 
     # 检查API响应状态
     if data["status"] == "OK":
