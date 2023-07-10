@@ -90,3 +90,31 @@ _✨ NoneBot 插件简单描述 ✨_
   `/提醒`
 - 在好友私聊下输入:/取消提醒 即可关闭比赛提醒功能 如
   `/取消提醒`
+
+## 🖼️ 效果图
+- 输入`/CFHELP`  
+  ![](https://github.com/coyude/nonebot-plugin-cfassistant/blob/master/img/cfhelp.png)
+
+- 输入`/CF`  
+  ![](https://github.com/coyude/nonebot-plugin-cfassistant/blob/master/img/cf.png)
+
+- 输入`/绑定 用户id`  
+  ![](https://github.com/coyude/nonebot-plugin-cfassistant/blob/master/img/%E7%BB%91%E5%AE%9A%E7%94%A8%E6%88%B7.png)  
+  **当监测到分数变化后自动发送**  
+  ![](https://github.com/coyude/nonebot-plugin-cfassistant/blob/master/img/%E5%88%86%E6%95%B0%E5%8F%98%E5%8C%96%E6%8F%90%E9%86%92.png)
+
+- 输入`/群提醒`  
+  ![](https://github.com/coyude/nonebot-plugin-cfassistant/blob/master/img/%E7%BE%A4%E6%8F%90%E9%86%92.png)
+
+- 输入`/取消群提醒`  
+  ![](https://github.com/coyude/nonebot-plugin-cfassistant/blob/master/img/%E5%8F%96%E6%B6%88%E7%BE%A4%E6%8F%90%E9%86%92.png)
+
+- 输入`/提醒`  
+  ![](https://github.com/coyude/nonebot-plugin-cfassistant/blob/master/img/%E5%A5%BD%E5%8F%8B%E6%8F%90%E9%86%92.png)
+
+- 输入`/取消提醒`  
+  ![](https://github.com/coyude/nonebot-plugin-cfassistant/blob/master/img/%E5%8F%96%E6%B6%88%E5%A5%BD%E5%8F%8B%E6%8F%90%E9%86%92.png)    
+
+- **群提醒&好友提醒的效果**  
+  ![](https://github.com/coyude/nonebot-plugin-cfassistant/blob/master/img/%E6%8F%90%E9%86%92%E5%B1%95%E7%A4%BA.png)  
+  
