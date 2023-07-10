@@ -156,7 +156,7 @@ async def returRatingChangeInfo():
                 now_rating,last_rating,QQ = row
                 if last_rating!=now_rating:
                     change=now_rating-last_rating
-                    output+=f"检测到您的CF账号 {user.id} 分数发生变化，从{last_rating} → {now_rating}  变动了{change}分！\n"
+                    output+=f"检测到您的CF账号 {user.id} 分数发生变化，从{last_rating} → {now_rating}  变动了{change}分~"
                     outputlist.append({'QQ':QQ,'output':output})
             else:
                 continue

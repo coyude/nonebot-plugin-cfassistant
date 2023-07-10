@@ -28,13 +28,13 @@ if not os.path.exists(data_path):
     os.makedirs(data_path)
 
 timing = require("nonebot_plugin_apscheduler").scheduler
-getCF = on_command("CF", rule=to_me(), aliases={"查CF","查cf","cf"}, priority=10, block=True)
-PluginHelp=on_command("CFHELP", rule=to_me(), aliases={"cfhelp"}, priority=10, block=True)
-bind= on_command("绑定", rule=to_me(), aliases={"订阅","用户"}, priority=10, block=True)
-onGroupRemind = on_command("群提醒", rule=to_me(), priority=10, block=True)
-disGroupdRemind = on_command("取消群提醒", rule=to_me(), priority=10, block=True)
-onPrivateRemind = on_command("提醒", rule=to_me(), priority=10, block=True)
-disPrivateRemind = on_command("取消提醒", rule=to_me(), priority=10, block=True)
+getCF = on_command("CF",aliases={"查CF","查cf","cf","Cf","cF"}, priority=10, block=True)
+PluginHelp=on_command("CFHELP", aliases={"cfhelp"}, priority=10, block=True)
+bind= on_command("绑定", aliases={"订阅","用户"}, priority=10, block=True)
+onGroupRemind = on_command("群提醒", priority=10, block=True)
+disGroupdRemind = on_command("取消群提醒",  priority=10, block=True)
+onPrivateRemind = on_command("提醒", priority=10, block=True)
+disPrivateRemind = on_command("取消提醒", priority=10, block=True)
 
 
 @getCF.handle()
