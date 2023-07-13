@@ -96,7 +96,7 @@ async def updateUser():
         for row in RS:
             Oid, Onow_rating, Oupdate_time, OQQ, Ostatus ,Olast_rating = row
             user_info_url=user_info_baseurl+Oid
-            time.sleep(0.3)
+            await asyncio.sleep(0.3)
             try:
                 async with aiohttp.ClientSession() as session:
                     async with session.get(user_info_url) as response:

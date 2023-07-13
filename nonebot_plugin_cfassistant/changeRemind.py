@@ -2,9 +2,10 @@ import aiosqlite
 import asyncio 
 import os
 data_path = './data/CFHelper/'
-db_path = os.path.join(data_path, 'reminder.db')
 if not os.path.exists(data_path):
     os.makedirs(data_path)
+db_path = os.path.join(data_path, 'reminder.db')
+db_lock = asyncio.Lock()
 # conn = sqlite3.connect('./data/CFHelper/reminder.db')
 # cursor = conn.cursor()
 # cursor.execute('''
@@ -42,7 +43,7 @@ asyncio.run(create_reminder())
 
 async def onUser(QQ):
     try:
-        async with aiosqlite.connect(db_path) as conn:
+        async with db_lock, aiosqlite.connect(db_path) as conn:
             cursor = await conn.cursor()
             await cursor.execute('''
             INSERT OR REPLACE INTO QQUser (QQ,status)
@@ -60,7 +61,7 @@ async def onUser(QQ):
 
 async def onGroup(QQGroup):
     try:
-        async with aiosqlite.connect(db_path) as conn:
+        async with db_lock, aiosqlite.connect(db_path) as conn:
             cursor = await conn.cursor()        
             await cursor.execute('''
             INSERT OR REPLACE INTO QQGroup (QQGroup,status)
@@ -76,7 +77,7 @@ async def onGroup(QQGroup):
 
 async def disUser(QQ):
     try:
-        async with aiosqlite.connect(db_path) as conn:
+        async with db_lock, aiosqlite.connect(db_path) as conn:
             cursor = await conn.cursor()
             await cursor.execute('''
             INSERT OR REPLACE INTO QQUser (QQ,status)
@@ -93,7 +94,7 @@ async def disUser(QQ):
 
 async def disGroup(QQGroup):
     try:
-        async with aiosqlite.connect(db_path) as conn:
+        async with db_lock, aiosqlite.connect(db_path) as conn:
             cursor = await conn.cursor()
             await cursor.execute('''
             INSERT OR REPLACE INTO QQGroup (QQGroup,status)
@@ -109,7 +110,7 @@ async def disGroup(QQGroup):
     
 async def returnReminderUserList():
     ReminderUserList=[]
-    async with aiosqlite.connect(db_path) as conn:
+    async with db_lock, aiosqlite.connect(db_path) as conn:
         cursor = await conn.cursor()
         await cursor.execute('SELECT * FROM QQUser')
         RS= await cursor.fetchall()
@@ -123,7 +124,7 @@ async def returnReminderUserList():
 
 async def returnReminderGroupList():
     ReminderGroupList=[]
-    async with aiosqlite.connect(db_path) as conn:
+    async with db_lock, aiosqlite.connect(db_path) as conn:
         cursor = await conn.cursor()
         await cursor.execute('SELECT * FROM QQGroup')
         RS= await cursor.fetchall()

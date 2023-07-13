@@ -4,7 +4,7 @@ import datetime
 import aiosqlite
 import asyncio 
 import os
-
+db_lock = asyncio.Lock()
 contest_url = "https://codeforces.com/api/contest.list?gym=false"
 data_path = './data/CFHelper/'
 if not os.path.exists(data_path):
@@ -114,7 +114,7 @@ async def updateContest():
             contest=ContestType(result["id"],result["name"],result["type"],result["phase"],result["durationSeconds"],result["startTimeSeconds"],abs(result["relativeTimeSeconds"]),contest_duration,contest_start_time,contest_relative_time)
             Contests.append(contest)
 
-            async with aiosqlite.connect(db_path) as conn:
+            async with db_lock, aiosqlite.connect(db_path) as conn:
                 cursor = await conn.cursor()
                 await cursor.execute('SELECT remindStatus FROM Contest WHERE id = ?', (contest.id,))
                 remind_status=0
@@ -148,7 +148,7 @@ async def updateContest():
 async def returnreminderInfo():
     Contests=await updateContest()
     output=""
-    async with aiosqlite.connect(db_path) as conn:
+    async with db_lock, aiosqlite.connect(db_path) as conn:
         remind_status=3
         cursor = await conn.cursor()
         for contest in Contests:
